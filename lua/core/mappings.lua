@@ -237,6 +237,38 @@ mappings.lspconfig = {
 	},
 }
 
+mappings.dap = {
+	n = {
+		["<leader>db"] = {
+			function()
+				require("dap").toggle_breakpoint()
+			end,
+			"Toggle breakpoint",
+		},
+		["<leader>du"] = {
+			function()
+				require("dapui").toggle()
+			end,
+			"Toggle dap-ui",
+		},
+		["<leader>dc"] = {
+			function()
+				require("dap").continue()
+			end,
+		},
+		["<leader>dsi"] = {
+			function()
+				require("dap").step_into()
+			end,
+		},
+		["<leader>dso"] = {
+			function()
+				require("dap").step_over()
+			end,
+		},
+	},
+}
+
 local autocmd = vim.api.nvim_create_autocmd
 
 autocmd("FileType", {
