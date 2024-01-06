@@ -1,0 +1,103 @@
+global !p
+def math():
+  return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+endglobal
+
+context "math()"
+snippet cases "Cases" bA
+\begin{cases}
+  ${0:${VISUAL}}
+\end{cases}
+endsnippet
+
+snippet mk "Math" wA
+\( ${1:${VISUAL}} \) $0
+endsnippet
+
+snippet dm "Math" wA
+\[ 
+ $1
+.\] $0
+endsnippet
+
+context "math()"
+snippet '([A-Za-z])(\d)' "auto subscript" wrA
+`!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
+endsnippet
+
+context "math()"
+snippet '([A-Za-z])_(\d\d)' "auto subscript2" wrA
+`!p snip.rv = match.group(1)`_{`!p snip.rv = match.group(2)`}
+endsnippet
+
+context "math()"
+snippet // "Fraction" iA
+\frac{$1}{$2}$0
+endsnippet
+
+context "math()"
+snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "Fraction" wrA
+\\frac{`!p snip.rv = match.group(1)`}{$1}$0
+endsnippet
+
+context "math()"
+snippet ooo "infty" wA
+\\infty
+endsnippet
+
+snippet plotcoor "plot by coordinates" b
+\\addplot[$1] coordinates {
+$2
+};
+$0
+endsnippet
+
+snippet plot3d "3d plot" b
+\\addplot3[$1] {$2};
+$0
+endsnippet
+
+snippet plot3dcoor "3d plot by coordinates" b
+\\addplot3[$1] coordinates {
+$2
+};
+$0
+endsnippet
+
+snippet legend "legend for plot" b
+\\addlegendentry{$1}$0
+endsnippet
+
+context "math()"
+snippet sq "auto sqrt" wA
+\\sqrt{$0}
+endsnippet
+
+context "math()"
+snippet <= "less or equation" wA
+\\leqslant $0
+endsnippet
+
+context "math()"
+snippet >= "gress or equation" wA
+\\geqslant $0
+endsnippet
+
+snippet frm "Frame without subtitle" bA
+\\begin{frame}[t]
+	\\frametitle{$1}
+
+	$0
+
+\\end{frame}
+endsnippet
+
+context "math()"
+snippet * "auto cdot" wA
+\\cdot $0
+endsnippet
+
+context "math()"
+snippet @ "Auto ^2" iA
+^2 $0
+endsnippet

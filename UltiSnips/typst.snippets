@@ -1,0 +1,100 @@
+global !p
+def math():
+  return vim.eval('typst#in_math()') == '1'
+
+def comm():
+	return vim.eval('typst#in_comment()') == '1'
+
+endglobal
+
+snippet mk "auto $$" wA
+$$1$`!p
+if t[2] and t[2][0] not in ['.', ',', '?', '-', ' ']:
+	snip.rv = ' '
+else:
+	snip.rv = ''
+`$0
+endsnippet
+
+snippet dm "auto $  $" wA
+$
+${1:${VISUAL}}
+$ $0
+endsnippet
+
+snippet fig "figure" b
+#figure(image("$1", width: ${2:80%}), caption: [
+$3 
+]) $0
+endsnippet
+
+snippet col "2 columns" b
+#columns(2)[
+$0
+]
+endsnippet
+
+context "math()"
+snippet sq "auto sqrt" iA
+sqrt(${1:${VISUAL}}) $0
+endsnippet
+
+context "math()"
+snippet sr "auto ^2" iA
+^2
+endsnippet
+
+context "math()"
+snippet cb "auto ^3" iA
+^3
+endsnippet
+
+context "math()"
+snippet td "to the ... power" iA
+^{$1}$0
+endsnippet
+
+context "math()"
+snippet __ "auto subscript" iA
+_{$1}$0
+endsnippet
+
+context "math()"
+snippet '([A-Za-z])(\d)' "auto subscript" wrA
+`!p	snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
+endsnippet
+
+context "math()"
+snippet '([A-Za-z])_(\d\d)' "auto subscript2" wrA
+`!p	snip.rv = match.group(1)`_{`!p snip.rv = match.group(2)`}
+endsnippet
+
+context "math()"
+snippet >= "auto gt.eq.slant" wA
+gt.eq.slant $0
+endsnippet
+
+context "math()"
+snippet <= "auto lt.eq.slant" wA
+lt.eq.slant $0
+endsnippet
+
+context "math()"
+snippet int "integral" w
+integral $0
+endsnippet
+
+context "math()"
+snippet rt "auto root" wA
+root(${1:${VISUAL}}, $2) $0
+endsnippet
+
+context "math()"
+snippet ooo "infinity" wA
+infinity
+endsnippet
+
+context "math()"
+snippet lim "limit" wA
+lim_(${1:n} -> ${2:oo}) $0
+endsnippet
