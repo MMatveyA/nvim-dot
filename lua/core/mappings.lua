@@ -1,5 +1,5 @@
-local hop = require("hop")
-local directions = require("hop.hint").HintDirection
+-- local hop = require("hop")
+-- local directions = require("hop.hint").HintDirection
 
 local mappings = {}
 
@@ -53,30 +53,30 @@ mappings.plugins = {
 		["<leader>so"] = { "<cmd> SymbolsOutline <cr>", "Toggle SymbolsOutline" },
 
 		-- HOP --
-		["f"] = {
-			function()
-				hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true })
-			end,
-			"Find first char",
-		},
-		["F"] = {
-			function()
-				hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true })
-			end,
-			"Find first char to back",
-		},
-		["t"] = {
-			function()
-				hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })
-			end,
-			"Find first char",
-		},
-		["T"] = {
-			function()
-				hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })
-			end,
-			"Find first char to back",
-		},
+		-- ["f"] = {
+		-- 	function()
+		-- 		hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true })
+		-- 	end,
+		-- 	"Find first char",
+		-- },
+		-- ["F"] = {
+		-- 	function()
+		-- 		hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true })
+		-- 	end,
+		-- 	"Find first char to back",
+		-- },
+		-- ["t"] = {
+		-- 	function()
+		-- 		hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })
+		-- 	end,
+		-- 	"Find first char",
+		-- },
+		-- ["T"] = {
+		-- 	function()
+		-- 		hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })
+		-- 	end,
+		-- 	"Find first char to back",
+		-- },
 	},
 
 	v = {
