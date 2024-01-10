@@ -63,6 +63,7 @@ cmp.setup({
 		-- end, { "i", "s" }),
 	},
 	sources = cmp.config.sources({
+		{ name = "conan_recipes", priority = 1000 },
 		{ name = "nvim_lsp", priority = 1000 },
 		{ name = "vimtex", priority = 1000 },
 		{ name = "ultisnips", priority = 750 },
